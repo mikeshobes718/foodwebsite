@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="jumbotron text-center">
+    <h1>Welcome to Our Food Store!</h1>
+    <p>Delicious dishes delivered to your doorstep.</p>
+    <a href="{% url 'menu' %}" class="btn btn-primary">View Menu</a>
+</div>
+
+<!-- Featured Dishes Section -->
+<div class="container">
+    <h2 class="text-center">Featured Dishes</h2>
+    <div class="row">
+        {% for dish in featured_dishes %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ dish.image.url }}" class="card-img-top" alt="{{ dish.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dish.name }}</h5>
+                    <p class="card-text">{{ dish.description }}</p>
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- About Section -->
+<div class="container mt-5">
+    <h2 class="text-center">About Us</h2>
+    <p>
+        We started our food journey in 20XX and have been serving delicious dishes ever since. Our commitment is to provide fresh, tasty, and authentic meals to all our customers.
+    </p>
+</div>
+
+<!-- Testimonials Section (Optional) -->
+<div class="container mt-5">
+    <h2 class="text-center">What Our Customers Say</h2>
+    <!-- Example testimonial; you can add more or loop through testimonials from your database -->
+    <blockquote class="blockquote">
+        <p class="mb-0">The food here is absolutely amazing! I order from here every week.</p>
+        <footer class="blockquote-footer">John Doe</footer>
+    </blockquote>
+</div>
+{% endblock %}
